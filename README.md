@@ -1,6 +1,6 @@
 # MaaFramework Watchdog
 
-A robust, independent, log-based monitoring system designed for **MaaFramework** agents. 
+A log-based monitoring system designed for **MaaFramework**. 
 
 The Watchdog monitors the execution flow of your MaaFramework agent by analyzing log files in real-time. It utilizes a configurable State Machine to track task transitions, detect timeouts, and send alerts via Telegram or WeChat Work when operations fail to complete within expected timeframes.
 
@@ -18,14 +18,13 @@ The Watchdog monitors the execution flow of your MaaFramework agent by analyzing
 ## 📋 Prerequisites
 
 *   Python 3.8+
-*   MaaFramework Agent (generating logs)
 
 ## 📦 Installation
 
 1.  **Clone the repository** (or download the source code):
     ```bash
-    git clone https://github.com/your-repo/maa-watchdog.git
-    cd maa-watchdog
+    git clone git@github.com:MaaGF1/logdog.git
+    cd logdog
     ```
 
 2.  **Install dependencies**:
@@ -132,7 +131,7 @@ python main.py --config ./my_configs/watchdog.conf
 
 ## 🧩 How it Works
 
-1.  **Log Parsing**: The `EnhancedLogMonitor` reads new lines from `maa.log`. It looks for patterns like `[pipeline_data.name=NodeName] | enter`.
+1.  **Log Parsing**: The `LogMonitor` reads new lines from `maa.log`. It looks for patterns like `[pipeline_data.name=NodeName] | enter`.
 2.  **State Activation**: If a detected node matches a `StartNode` in `[States]`, a new `WatchdogState` is activated, and a timer starts.
 3.  **Transition/Completion**: 
     *   If the target node appears within the time limit, the rule is marked as **Completed** (or moves to the next step).
