@@ -238,6 +238,33 @@ class WatchdogService:
             print("No notification platforms configured")
 
 
+def print_logo():
+    """
+    Prints the Dinergate(Dandelion) (Girls' Frontline) ASCII art.
+    """
+    logo = r"""
+              .=====================.
+             /|                     |\
+            | |  Dandelion Service  | |
+            | |                     | |
+            |  \___________________/  |
+             \_______________________/
+                     \      /
+                      \    /
+                 .-----`--'-----.
+                / .------------. \
+               / /    .----.    \ \
+              | |    /  ()  \    | |
+              | |   |   __   |   | |
+               \ \   \      /   / /
+                \ '------------' /
+                 \              /
+                 /`.__________.'\
+                /   /        \   \
+               ^   ^          ^   ^
+    """
+    print(logo)
+
 def main():
     """Main entry point"""
     parser = argparse.ArgumentParser(description='MaaFramework Watchdog Service')
@@ -270,6 +297,9 @@ def main():
     print("Starting MaaFramework Watchdog Service...")
     print("Press Ctrl+C to stop")
     print("Use --status for basic status, --detailed-status for full details")
+
+    # Print Dandelion logo
+    print_logo()
     
     success = service.run()
     sys.exit(0 if success else 1)
