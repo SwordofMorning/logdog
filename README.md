@@ -1,3 +1,5 @@
+[![English](https://img.shields.io/badge/English-README-blue)](docs/README.en.md)
+
 # MaaFramework Watchdog
 
 一个为 MaaFramework 设计的基于日志的监控系统。
